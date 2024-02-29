@@ -1,0 +1,575 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@keyframes pulse {
+  0%, 30%, 70%, 100% {
+    transform: scale(1.5);
+    opacity: 0.6;
+  }
+  5%, 35%, 75% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(255, 239, 220);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 4px 80px;
+}
+nav .logo {
+  height: 3rem;
+}
+nav .nav-lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  gap: 16px;
+}
+nav .nav-lists li > a {
+  text-decoration: none;
+  color: black;
+}
+nav .nav-lists li.current > a {
+  color: orange;
+}
+nav form {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+nav form input {
+  font-size: 12px;
+  padding: 8px;
+  padding-left: 32px;
+  border-radius: 2em;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-right: 16px;
+}
+nav form input:focus {
+  outline: 3px solid skyblue;
+}
+nav form .ai-search {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+}
+nav form button {
+  border: none;
+  background: transparent;
+  font-size: 140%;
+}
+nav form button .new {
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 100%;
+  position: absolute;
+  top: 10%;
+  right: 1%;
+  animation: pulse 5s infinite;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 80px 40px 80px;
+}
+.container .bg-hero-1 {
+  width: 450px;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.container .bg-hero-2 {
+  width: 450px;
+  z-index: -1;
+  position: absolute;
+  top: 500px;
+  left: 0;
+}
+.container .content-left {
+  width: 500px;
+}
+.container .content-left .title {
+  font-size: 48px;
+}
+.container .content-left .title span {
+  color: orange;
+}
+.container .content-left p {
+  width: 400px;
+  margin: 40px 0;
+}
+.container .content-left .acts {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.container .content-left .acts .order-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 40px;
+  background: brown;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-size: 18px;
+  gap: 8px;
+}
+.container .content-left .acts .order-button .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: orange;
+  padding: 4px;
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+}
+.container .content-left .acts a {
+  font-weight: bold;
+  color: orange;
+  text-decoration: none;
+}
+.container .content-right .hero-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: brown;
+  border-radius: 100%;
+  width: 350px;
+  height: 350px;
+  position: relative;
+}
+.container .content-right .hero-img-container img {
+  width: 280px;
+  height: auto;
+}
+.container .content-right .hero-img-container .coffee-sahdow {
+  width: 400px;
+  position: absolute;
+}
+.container .content-right .hero-img-container .glassy-card {
+  width: -moz-max-content;
+  width: max-content;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 40px;
+  left: -40px;
+}
+.container .content-right .hero-img-container .glassy-card .glassy-border {
+  font-weight: bold;
+  background: #fff;
+  padding: 8px 40px;
+  border-radius: 40px;
+}
+.container .content-right .hero-img-container .glassy-card-2 {
+  width: -moz-max-content;
+  width: max-content;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 80px;
+  right: -40px;
+}
+.container .content-right .hero-img-container .glassy-card-2 .glassy-border-2 {
+  font-weight: bold;
+  background: #fff;
+  padding: 8px 40px;
+  border-radius: 40px;
+}
+.container .content-right .hero-img-container .glassy-card-2 .glassy-border-2 p {
+  display: flex;
+  align-items: center;
+}
+.container .content-right .hero-img-container .glassy-card-2 .glassy-border-2 p img {
+  width: 1.4em;
+  margin-left: 8px;
+}
+.container .content-right .hero-img-container .glassy-card-3 {
+  width: -moz-max-content;
+  width: max-content;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 8px;
+  left: 20px;
+}
+.container .content-right .hero-img-container .glassy-card-3 .glassy-border-3 {
+  font-weight: bold;
+  background: #fff;
+  padding: 8px 40px;
+  border-radius: 40px;
+}
+
+.products {
+  margin-top: 40px;
+  padding: 0 80px;
+}
+.products .title {
+  font-size: 40px;
+}
+.products .title span {
+  text-decoration: underline;
+  text-decoration-color: orange;
+}
+.products .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 40px;
+  margin-top: 200px;
+  background-color: bisque;
+  width: 85%;
+  height: 150px;
+}
+.products .container .border {
+  margin-top: -250px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+.products .container .border .card {
+  position: relative;
+  padding: 4px;
+  border: 8px solid rgba(255, 255, 255, 0.5);
+  background: white;
+  border-radius: 12px;
+  width: 14rem;
+}
+.products .container .border .card img {
+  width: 100%;
+  height: 50%;
+  border-radius: 12px;
+}
+.products .container .border .card .rate {
+  width: -moz-max-content;
+  width: max-content;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  box-shadow: none;
+  position: absolute;
+  padding: 3px;
+  left: 5%;
+  top: 5%;
+}
+.products .container .border .card .rate .inner {
+  font-weight: bold;
+  background: #fff;
+  padding: 8px 40px;
+  border-radius: 40px;
+  padding: 4px 8px;
+}
+.products .container .border .card .rate .inner img {
+  width: 1em;
+}
+.products .container .border .card .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.products .container .border .card .card-body .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.products .container .border .card .card-body .title p {
+  font-size: 20px;
+  font-weight: bold;
+}
+.products .container .border .card .card-body .title p:nth-child(2) {
+  font-size: 16px;
+  font-weight: bolder;
+}
+.products .container .border .card .card-body .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.products .container .border .card .card-body .content .badges {
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+  gap: 8px;
+}
+.products .container .border .card .card-body .content .badges .badge {
+  background: transparent;
+  border: 2px solid orange;
+  padding: 8px 24px;
+  border-radius: 16px;
+  color: orange;
+  opacity: 0.4;
+}
+.products .container .border .card .card-body .content .badges .badge.active {
+  opacity: 1;
+}
+.products .container .border .card .card-body .content button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: content-box;
+  background: orange;
+  padding: 4px;
+  border: none;
+  border-radius: 100%;
+}
+.products .container .border .card .card-body .content button i {
+  font-size: 1.4rem;
+  color: white;
+}
+
+.bg-white {
+  background: white;
+  width: 100%;
+  position: absolute;
+  height: 900px;
+  margin-top: -150px;
+  z-index: -4;
+}
+
+.delivery {
+  padding: 80px;
+}
+.delivery .title {
+  font-size: 40px;
+}
+.delivery .title span {
+  text-decoration: underline;
+  text-decoration-color: orange;
+}
+.delivery .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.delivery .container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+.delivery .container div div p {
+  font-size: 20px;
+  margin: 8px;
+}
+.delivery .container div div p:first-child {
+  font-weight: bold;
+}
+
+.about-us {
+  margin-top: 200px;
+  position: relative;
+  box-sizing: border-box;
+}
+.about-us .bg-aboutus {
+  padding: 20px 0;
+  position: absolute;
+  width: 100%;
+  opacity: 0.1;
+}
+.about-us .container {
+  padding: 0 80px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+  align-items: center;
+  width: 100%;
+}
+.about-us .container .left {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+.about-us .container .left img {
+  margin-top: -150px;
+  width: 60%;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+.about-us .container .right h1 {
+  font-size: 40px;
+  margin-bottom: 0.5em;
+}
+.about-us .container .right h1 span {
+  text-decoration: underline;
+  text-decoration-color: orange;
+}
+.about-us .container .right p {
+  margin: 2em 0;
+  color: rgba(0, 0, 0, 0.6);
+}
+.about-us .container .right button {
+  padding: 12px 24px;
+  border-radius: 40px;
+  background: brown;
+  border: none;
+  color: orange;
+  font-size: 18px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.special-menu {
+  padding: 150px 120px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  background-color: white;
+}
+.special-menu h1 {
+  font-size: 40px;
+}
+.special-menu h1 span {
+  text-decoration: underline;
+  text-decoration-color: orange;
+}
+.special-menu .menus {
+  margin-top: 3em;
+  height: 700px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 40px;
+}
+.special-menu .menus .card {
+  position: relative;
+  padding: 4px;
+  border: 8px solid rgba(255, 255, 255, 0.5);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+.special-menu .menus .card img {
+  width: 100%;
+  height: 50%;
+  border-radius: 12px;
+}
+.special-menu .menus .card .rate {
+  width: -moz-max-content;
+  width: max-content;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  box-shadow: none;
+  position: absolute;
+  padding: 3px;
+  left: 5%;
+  top: 5%;
+}
+.special-menu .menus .card .rate .inner {
+  font-weight: bold;
+  background: #fff;
+  padding: 8px 40px;
+  border-radius: 40px;
+  padding: 4px 8px;
+}
+.special-menu .menus .card .rate .inner img {
+  width: 1em;
+}
+.special-menu .menus .card .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.special-menu .menus .card .card-body .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.special-menu .menus .card .card-body .title p {
+  font-size: 20px;
+  font-weight: bold;
+}
+.special-menu .menus .card .card-body .title p:nth-child(2) {
+  font-size: 16px;
+  font-weight: bolder;
+}
+.special-menu .menus .card .card-body .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.special-menu .menus .card .card-body .content .badges {
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+  gap: 8px;
+}
+.special-menu .menus .card .card-body .content .badges .badge {
+  background: transparent;
+  border: 2px solid orange;
+  padding: 8px 24px;
+  border-radius: 16px;
+  color: orange;
+  opacity: 0.4;
+}
+.special-menu .menus .card .card-body .content .badges .badge.active {
+  opacity: 1;
+}
+.special-menu .menus .card .card-body .content button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: content-box;
+  background: orange;
+  padding: 4px;
+  border: none;
+  border-radius: 100%;
+}
+.special-menu .menus .card .card-body .content button i {
+  font-size: 1.4rem;
+  color: white;
+}
+.special-menu .menus .card img {
+  width: 100%;
+  height: 60%;
+}
+.special-menu .menus .card .card-body .content .description {
+  font-weight: bold;
+  opacity: 0.6;
+}
+.special-menu .menus .card .card-body .title p {
+  font-weight: bolder;
+  font-size: 1.4em;
+}/*# sourceMappingURL=style.css.map */

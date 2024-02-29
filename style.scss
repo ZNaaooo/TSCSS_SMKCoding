@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$myColor: orange;
+$secondColor: brown;
+$baseSize: 4px;
+
+@mixin flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin glassy-c {
+  width: max-content;
+  padding: $baseSize;
+  background: rgba($color: #fff, $alpha: 0.5);
+  border-radius: ($baseSize * 10);
+  box-shadow: 0 0 20px rgba($color: black, $alpha: 0.6);
+}
+
+@mixin glassy-b($padX: 10) {
+  font-weight: bold;
+  background: #fff;
+  padding: ($baseSize * 2) ($baseSize * $padX);
+  border-radius: ($baseSize * 10);
+}
+
+@mixin underlined {
+  text-decoration: underline;
+  text-decoration-color: orange;
+}
+
+@mixin second-button($color: white) {
+  padding: ($baseSize * 3) ($baseSize * 6);
+  border-radius: ($baseSize * 10);
+  background: $secondColor;
+  border: none;
+  color: $color;
+  font-size: 18px;
+}
+
+@mixin card {
+  position: relative;
+  padding: $baseSize;
+  border: 8px solid rgba($color: white, $alpha: 0.5);
+  background: white;
+  border-radius: ($baseSize * 3);
+
+  img {
+    width: 100%;
+    height: 50%;
+    border-radius: ($baseSize * 3)
+  }
+
+  .rate {
+    @include glassy-c();
+    box-shadow: none;
+    position: absolute;
+    padding: ($baseSize * .75);
+    left: 5%;
+    top: 5%;
+
+    .inner {
+      @include glassy-b();
+      padding: $baseSize (
+        $baseSize * 2
+      );
+
+      img {
+        width: 1em;
+      }
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: ($baseSize * 5);
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        font-size: $baseSize * 5;
+        font-weight: bold;
+
+        &:nth-child(2) {
+          font-size: $baseSize * 4;
+          font-weight: bolder;
+        }
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .badges {
+        display: flex;
+        flex-direction: row;
+        font-size: $baseSize * 6;
+        gap: ($baseSize * 2);
+
+        .badge {
+          background: transparent;
+          border: 2px solid $myColor;
+          padding: ($baseSize * 2) ($baseSize * 6);
+          border-radius: ($baseSize * 4);
+          color: $myColor;
+          opacity: .4;
+
+          &.active {
+            opacity: 1;
+          }
+        }
+      }
+
+      button {
+        @include flex-box();
+        box-sizing: content-box;
+        background: $myColor;
+        padding: 4px;
+        border: none;
+        border-radius: 100%;
+
+        i {
+          font-size: 1.4rem;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 30%, 70%, 100% {
+    transform: scale(1.5);
+    opacity: .6;
+  }
+  5%, 35%, 75% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(255, 239, 220);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: $baseSize 80px;
+
+  .logo {
+    height: 3rem;
+  }
+  .nav-lists {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    gap: $baseSize * 4;
+
+    li > a {
+      text-decoration: none;
+      color: black;
+    }
+    li.current > a {
+      color: $myColor;
+    }
+  }
+  form {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    input {
+      font-size: $baseSize * 3;
+      padding: ($baseSize * 2);
+      padding-left: ($baseSize * 8);
+      border-radius: 2em;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+      margin-right: $baseSize * 4;
+
+      &:focus {
+        outline: 3px solid skyblue;
+      }
+    }
+    .ai-search {
+      position: absolute;
+      top: 50%;
+      left: $baseSize * 2;
+      transform: translateY(-50%);
+    }
+    button {
+      border: none;
+      background: transparent;
+      font-size: 140%;
+
+      .new {
+        width: $baseSize * 2;
+        height: $baseSize * 2;
+        background: red;
+        border-radius: 100%;
+        position: absolute;
+        top: 10%;
+        right: 1%;
+        animation: pulse 5s infinite;
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 80px 40px 80px;
+
+  .bg-hero-1 {
+    width: 450px;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .bg-hero-2 {
+    width: 450px;
+    z-index: -1;
+    position: absolute;
+    top: 500px;
+    left: 0;
+  }
+
+  .content-left {
+    width: 500px;
+    .title {
+      font-size: 48px;
+      span {
+        color: $myColor;
+      }
+    }
+
+    p {
+      width: 400px;
+      margin: ($baseSize * 10) 0;
+    }
+
+    .acts {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .order-button {
+        @include flex-box();
+        @include second-button();
+        font-size: 18px;
+        gap: 8px;
+
+        .icon {
+          @include flex-box();
+          background: $myColor;
+          padding: $baseSize;
+          border-radius: 100%;
+          width: 24px;
+          height: 24px;
+        }
+      }
+      a {
+        font-weight: bold;
+        color: $myColor;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .content-right {
+    .hero-img-container {
+      @include flex-box();
+      background: brown;
+      border-radius: 100%;
+      width: 350px;
+      height: 350px;
+      position: relative;
+
+      img {
+        width: 280px;
+        height: auto;
+      }
+
+      .coffee-sahdow {
+        width: 400px;
+        position: absolute;
+      }
+
+      .glassy-card {
+        @include glassy-c();
+
+        position: absolute;
+        top: ($baseSize * 10);
+        left: -($baseSize * 10);
+
+        .glassy-border {
+          @include glassy-b();
+        }
+      }
+      .glassy-card-2 {
+        @include glassy-c();
+
+        position: absolute;
+        top: ($baseSize * 20);
+        right: -($baseSize * 10);
+
+        .glassy-border-2 {
+          @include glassy-b();
+
+          p {
+            display: flex;
+            align-items: center;
+
+            img {
+              width: 1.4em;
+              margin-left: $baseSize * 2;
+            }
+          }
+        }
+      }
+      .glassy-card-3 {
+        @include glassy-c();
+
+        position: absolute;
+        bottom: ($baseSize * 2);
+        left: ($baseSize * 5);
+
+        .glassy-border-3 {
+          @include glassy-b();
+        }
+      }
+    }
+  }
+}
+
+.products {
+  margin-top: 40px;
+  padding: 0 80px;
+  .title {
+    font-size: $baseSize * 10;
+
+    span {
+      @include underlined();
+    }
+  }
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    border-radius: ($baseSize * 10);
+    margin-top: 200px;
+    background-color: bisque;
+    width: 85%;
+    height: 150px;
+
+    .border {
+      margin-top: -250px;
+      padding: $baseSize;
+      background: rgba($color: #fff, $alpha: 0.5);
+      border-radius: ($baseSize * 4);
+      box-shadow: 0 0 20px rgba($color: black, $alpha: 0.6);
+
+      .card {
+        @include card();
+        width: 14rem;
+      }
+    }
+  }
+}
+
+.bg-white {
+  background: white;
+  width: 100%;
+  position: absolute;
+  height: 900px;
+  margin-top: -150px;
+  z-index: -4;
+}
+
+.delivery {
+  padding: 80px;
+
+  .title {
+    font-size: $baseSize * 10;
+    span {
+      @include underlined();
+    }
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      background: transparent;
+      border: none;
+      width: 100%;
+
+      div {
+        p {
+          font-size: 20px;
+          margin: ($baseSize * 2);
+
+          &:first-child {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.about-us {
+  margin-top: 200px;
+  position: relative;
+  box-sizing: border-box;
+
+  .bg-aboutus {
+    padding: 20px 0;
+    position: absolute;
+    width: 100%;
+    opacity: .1;
+  }
+
+  .container {
+    padding: 0 80px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+    align-items: center;
+    width: 100%;
+
+    .left {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      img {
+        margin-top: -150px;
+        width: 60%;
+        border: $baseSize solid rgba($color: white, $alpha: 0.5);
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba($color: black, $alpha: 0.6);
+      }
+    }
+    .right {
+      h1 {
+        font-size: ($baseSize * 10);
+        margin-bottom: .5em;
+
+        span {
+          @include underlined();
+        }
+      }
+      p {
+        margin: 2em 0;
+        color: rgba($color: black, $alpha: 0.6);
+      }
+      button {
+        @include second-button($color: $myColor);
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.special-menu {
+  padding: 150px 120px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  background-color: white;
+
+  h1 {
+    font-size: $baseSize * 10;
+    
+    span {
+      @include underlined();
+    }
+  }
+
+  .menus {
+    margin-top: 3em;
+    height: 700px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: ($baseSize * 10);
+
+    .card {
+      @include card();
+      box-shadow: 0 0 10px rgba($color: black, $alpha: 0.6);
+
+      img {
+        width: 100%;
+        height: 60%;
+      }
+      .card-body {
+        .content {
+          .description {
+            font-weight: bold;
+            opacity: .6;
+          }
+        }
+        .title {
+          p {
+            font-weight: bolder;
+            font-size: 1.4em;
+          }
+        }
+      }
+    }
+  }
+}
